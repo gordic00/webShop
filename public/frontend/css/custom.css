@@ -4,8 +4,10 @@
 }
 
 .link-link :hover {
-    color:white;
-    background-color: darkred;
+    /* color:white; */
+    /* background-color: darkred; */
+    color: darkred;
+    background-color:aliceblue;
 }
 
 .checkout-form label {

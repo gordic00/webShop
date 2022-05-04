@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\Checkoutcontroller;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\UserController;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +49,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('delete-cart-item',[CartController::class, 'deleteproduct']);
     Route::resource('checkout', Checkoutcontroller::class);
     Route::post('place-order',[Checkoutcontroller::class, 'placeorder']);
+    Route::resource('my-orders', UserController::class);
+    Route::get('view-order/{id}',[UserController::class, 'view']);
 });
 
 /* samo za admin user-e*/
@@ -58,4 +63,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('products',ProductController::class);
     Route::resource('product_details', ProductDetailsController::class);
 
+    Route::resource('orders', OrderController::class);
+    Route::get('admin/view-order/{id}',[OrderController::class , 'view']);
+    Route::put('update-order/{id}',[OrderController::class,'update']);
+    Route::get('order-history',[OrderController::class,'complitedOrders']);
+
+    Route::get('users', [DashboardController::class,'users']);
+    Route::get('view-user/{id}',[DashboardController::class, 'viewuser']);
+    Route::resource('userss', DashboardController::class);
+
+    //Route::post('delete-user/{user}', [DashboardController::class, 'destroy']);
 });

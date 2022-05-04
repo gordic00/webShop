@@ -15,8 +15,8 @@
                     @foreach ($featured_products as $prod)
                         <div class="item">
                             <a href="{{ url('category/'. $prod->product->category->slug.'/'.$prod->product->slug) }}" class="link-link">
-                                <div class="card" style="height: 370px">
-                                    <div>
+                                <div class="card" style="height: 400px">
+                                    <div style="height: 300px"">
                                         <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" alt="Slika proizvoda">
                                     </div>
                                     <div class="card-body">
@@ -53,11 +53,11 @@
                     @foreach ($trending_category as $cate)
                         <div class="item">
                             <a href="{{ url('view-category',$cate->slug) }}" class=" link-link">
-                                <div class="card">
-                                    <div>
-                                        <img src="{{ asset('assets/uploads/category/'. $cate->image) }}" alt="Sliak kategorije">
+                                <div class="card" style="height: 350px">
+                                    <div style="height: 300px">
+                                        <img src="{{ asset('assets/uploads/category/'. $cate->image) }}" alt="Sliak kategorije" style="max-height: 250px">
                                     </div>
-                                    <div class="card-body">
+                                    <div class=" card-body">
                                         <h5>{{ $cate->name }}</h5>
                                     </div>
                                 </div>

@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lname">Last Name</label>
-                                    <input type="text" class=" form-control" id="lname" name="lname" value="{{ Auth::user()->email }}" placeholder="Enter Last Name">
+                                    <input type="text" class=" form-control" id="lname" name="lname" value="{{ Auth::user()->lname }}" placeholder="Enter Last Name">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Email</label>

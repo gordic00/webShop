@@ -1,6 +1,6 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-light" id="sidenav-main">
     <div class="sidenav-header">
-      <a class="navbar-brand m-0" href="#" target="_self">
+      <a class="navbar-brand m-0" href="{{ url('/') }}" target="_self">
         <h2>DzEri</h2>
       </a>
     </div>
@@ -48,13 +48,20 @@
             <span class="nav-link-text ms-1 text-dark text-bold">Novi proizvod</span>
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link " href="#">
+          <a class="nav-link {{ Request::is('orders') ? 'navbar-light' : ''; }}" href="{{ route('orders.index') }}">
             <div class="text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10 bold text-dark">table_view</i>
             </div>
-            <span class="nav-link-text ms-1 text-dark text-bold">Tabele</span>
+            <span class="nav-link-text ms-1 text-dark text-bold">Orders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('users') ? 'navbar-light' : ''; }} " href="{{ url('users') }}">
+            <div class="text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10 bold text-dark">person</i>
+            </div>
+            <span class="nav-link-text ms-1 text-dark text-bold">Users</span>
           </a>
         </li>
       </ul>

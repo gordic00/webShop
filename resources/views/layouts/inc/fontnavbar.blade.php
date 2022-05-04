@@ -11,11 +11,11 @@
             <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
           </li>
           <li>
-            <a class="nav-link" href="{{ url('category') }}">Kategorije</a>
+            <a class="nav-link" href="{{ url('category') }}">Categories</a>
           </li>
           @auth
             <li>
-              <a class="nav-link" href="{{ url('cart') }}">My Cart</a>
+              <a class="nav-link" href="{{ url('cart') }}">Cart</a>
             </li>
           @endauth
 
@@ -38,7 +38,13 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{ route('home') }}">My profile</a>
+                      <a class="dropdown-item" href="{{ route('home') }}">My Profile</a>
+                    </li>
+                    {{-- <li>
+                      <a class="dropdown-item" href="{{ url('cart') }}">My Cart</a>
+                    </li> --}}
+                    <li>
+                      <a class="dropdown-item" href="{{ route('my-orders.index') }}">My Orders</a>
                     </li>
                     @if (Auth::user()->role_as == '1')
                       <li>
