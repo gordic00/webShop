@@ -10,6 +10,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\Checkoutcontroller;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\WishlistController;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('add-to-cart',[CartController::class, 'addProduct']);
+Route::post('add-to-wishlist',[WishlistController::class, 'add']);
 
 
 /* samo za ulogovane user-e */
@@ -50,6 +53,9 @@ Route::middleware(['auth'])->group(function(){
     Route::post('place-order',[Checkoutcontroller::class, 'placeorder']);
     Route::resource('my-orders', UserController::class);
     Route::get('view-order/{id}',[UserController::class, 'view']);
+    Route::get('wishlist',[WishlistController::class, 'index']);
+    Route::post('delete-wishlist-item',[WishlistController::class, 'destroy']);
+
 });
 
 /* samo za admin user-e*/

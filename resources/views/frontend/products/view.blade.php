@@ -55,7 +55,7 @@
                         @if ($productDetails->qty > 0)
                             <a href="{{ url('add-to-cart', $productDetails->product->id) }}"><button type="submit" class=" btn btn-success me-3 float-start addToCartBtn">Add to Cart</button></a>
                         @endif
-                        <button type="button" class=" btn btn-primary me-3 float-start">Add to Wishlist</button>
+                            <button type="button" class=" btn btn-primary me-3 addToWishlist float-start">Add to Wishlist</button>
                     </div>
                     <a href="{{ url('cart') }}" class="btn btn-outline-primary float-start me-3">My Cart</a>
                 </div>
@@ -78,6 +78,29 @@
 
 @section('scripts')
 <script>
+
+    $('.addToWishlist').click(function (e) { 
+         e.preventDefault();
+
+        var product_id = $(this).closest('.product_data').find('.prod_id').val();
+        
+        $.ajaxSetup({
+         headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+        });
+
+        $.ajax({
+         type: "POST",
+         url: "/add-to-wishlist",
+         data: {
+             'product_id' : product_id,
+         },
+         success: function (response) {
+             swal(response.status);
+             }
+         });
+     });
        
     $('.addToCartBtn').click(function (e) { 
      e.preventDefault();
