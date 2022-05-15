@@ -50,7 +50,7 @@
                         </div>
                         <div class=" col-md-2 my-4"> 
                             @if ($item->products->productDetails[0]['qty'] > 0)
-                                <button class=" btn btn-success addToCartBtn">Add To Cart</button>
+                                <button class=" btn btn-success addToCartBtn delete-wishlist-item">Add To Cart</button>
                             @endif
                         </div>
                         <div class=" col-md-2 my-4"> 
