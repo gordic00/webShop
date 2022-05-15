@@ -43,6 +43,9 @@
             </tbody>
         </table>
     </div>
+    <div class=" px-3">
+        {{ $users->links() }}
+    </div>
 </div>
 
 @endsection

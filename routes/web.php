@@ -10,7 +10,6 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\Checkoutcontroller;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\UserController;
-use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

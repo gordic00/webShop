@@ -20,7 +20,7 @@ class DashboardController extends Controller
 
     public function users()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
@@ -95,7 +95,13 @@ class DashboardController extends Controller
     {
         //
         $user = User::where('id',$id)->first();
-        $user->delete();
-        return redirect('users')->with('status','User Deleted Successfully');
+        if ($user->role_as == 0) {
+            $user->delete();
+            return redirect('users')->with('status','User Deleted Successfully');
+        }
+        else {
+            return redirect('users')->with('status',"You can not delete Admin user!");
+        }
+        
     }
 }

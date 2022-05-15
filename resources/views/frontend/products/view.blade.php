@@ -19,6 +19,9 @@
                 <div class=" col-md-4 border-right">
                     <img class="card-img-top" src="{{ asset('assets/uploads/products/'. $productDetails->image) }}" alt="Slika proizvoda" class=" w100">
                 </div>
+                <div class=" col-12">
+
+                </div>
                 <div class=" col-md-8">
                     <h2 class=" mb-0">
                         {{ $product->name }}

@@ -53,6 +53,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class=" px-3">
+                {{ $orders->links() }}
+            </div>
         </div>
     </div>
 

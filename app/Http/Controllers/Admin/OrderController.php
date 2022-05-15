@@ -16,14 +16,14 @@ class OrderController extends Controller
     public function index()
     {
         //$orders = Order::where('status','0')->get();
-        $orders = Order::where('status','0')->paginate(15);
+        $orders = Order::where('status','0')->paginate(10);
         return view('admin.orders.index', compact('orders'));
     }
 
     public function complitedOrders()
     {
         //$orders = Order::where('status','1')->get();
-        $orders = Order::where('status','1')->paginate(15);
+        $orders = Order::where('status','1')->paginate(10);
         return view('admin.orders.history', compact('orders'));
     }
 
