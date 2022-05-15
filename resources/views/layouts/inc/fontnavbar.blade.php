@@ -15,10 +15,14 @@
           </li>
           @auth
             <li>
-              <a class="nav-link" href="{{ url('cart') }}">Cart</a>
+              <a class="nav-link" href="{{ url('cart') }}">Cart
+               <span class=" badge-pill cart-count"></span>
+              </a>
             </li>
             <li>
-              <a class="nav-link" href="{{ url('wishlist') }}">Wishlist</a>
+              <a class="nav-link" href="{{ url('wishlist') }}">Wishlist
+                <span class=" badge-pill wish-count"></span>
+              </a>
             </li>
           @endauth
 

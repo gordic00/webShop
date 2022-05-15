@@ -49,6 +49,12 @@ class WishlistController extends Controller
         }
     }
 
+    public function wishcount()
+    {
+        $wishcount = Wishlist::where('user_id', Auth::id())->count();
+        return response()->json(['count'=>$wishcount]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

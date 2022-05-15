@@ -43,6 +43,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('add-to-cart',[CartController::class, 'addProduct']);
 Route::post('add-to-wishlist',[WishlistController::class, 'add']);
 
+Route::get('load-cart-data',[CartController::class,'cartcount']);
+Route::get('load-wish-data',[WishlistController::class,'wishcount']);
 
 /* samo za ulogovane user-e */
 Route::middleware(['auth'])->group(function(){

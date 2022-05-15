@@ -37,6 +37,44 @@
 
     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        
+        loadcart();
+        loadwish();
+
+        $ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
+        function loadcart()
+        {
+          $.ajax({
+            method: "GET",
+            url: "/load-cart-data",
+            success: function (response) {
+              $('.cart-count').html('');
+              $('.cart-count').html(response.count);
+            }
+          });
+        }
+
+        function loadwish()
+        {
+          $.ajax({
+            method: "GET",
+            url: "/load-wish-data",
+            success: function (response) {
+              $('.wish-count').html('');
+              $('.wish-count').html(response.count);
+            }
+          });
+        }
+
+       });
+    </script>
     @if (session('status'))
         <script>
             swal("{{ session('status') }}");
